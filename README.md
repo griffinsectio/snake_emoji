@@ -1,5 +1,5 @@
 # Description
-Just another snake game but written using emojicode
+Just another snake game but written using emojicode (Linux Only)
 # How to setup
 - Create the packages and the library folder
 ```sh
