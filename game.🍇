@@ -1,0 +1,319 @@
+📦 terminal 🏠
+
+🐇 🎮 🍇
+    🖍🆕 running 👌 ⬅ 👍
+    🖍🆕 show_info 👌 ⬅ 👎
+    🖍🆕 game_width 🔢 ⬅ 8
+    🖍🆕 game_height 🔢 ⬅ 8
+    🖍🆕 rng 🎰 ⬅ 🆕🎰❗
+    🖍🆕 direction 🔡 ⬅ 🔤right🔤
+    🖍🆕 snake_body 🍨🐚🍨🐚🔢🍆🍆 ⬅ 🍿 🍿0 0🍆 🍆
+    🖍🆕 snake_pos 🍨🐚🔢🍆 ⬅ 🍿0 0🍆
+    🖍🆕 apple_pos 🍨🐚🔢🍆 ⬅ 🍿0 0🍆
+    🖍🆕 score 🔢 ⬅ 0
+
+    ❓ 🏃‍♀️ ➡ 👌 🍇
+        ↩ running
+    🍉
+
+    ❓ 🕹 ➡ 🔡 🍇
+        💭 get key from user
+        📥🐇🖥❗ ➡ input
+
+        💭 up direction
+        ↪ input 🙌 87 👐 input 🙌 119 🤝 ❎direction 🙌 🔤down🔤 ❗ 🍇
+            ↩ 🔤up🔤
+        🍉
+        💭 down direction
+        🙅↪️ input 🙌 83 👐 input 🙌 115 🤝 ❎direction 🙌 🔤up🔤 ❗ 🍇
+            ↩ 🔤down🔤
+        🍉
+        💭 right direction
+        🙅↪️ input 🙌 68 👐 input 🙌 100 🤝 ❎direction 🙌 🔤left🔤 ❗ 🍇
+            ↩ 🔤right🔤
+        🍉
+        💭 left direction
+        🙅↪️ input 🙌 65 👐 input 🙌 97 🤝 ❎direction 🙌 🔤right🔤 ❗ 🍇
+            ↩ 🔤left🔤
+        🍉
+        🙅↪ input 🙌 81 👐 input 🙌 113 🍇
+            ↩ 🔤Quit🔤
+        🍉
+        ↩ direction
+    🍉
+
+    ❗ 🛑 key 🔡 🍇
+        ↪ key 🙌 🔤Quit🔤 🍇
+            👇 🔚 ❗
+        🍉
+        🙅‍♀️ 🍇
+            key ➡ 🖍 direction
+        🍉
+    🍉
+
+    ❗ 💨 🍇
+        💭 update snake's body position
+        ↪ direction 🙌 🔤up🔤 🍇
+            🐽 snake_pos 1❗➖1 ➡️ 🐽 snake_pos 1❗
+        🍉
+        🙅↪ direction 🙌 🔤down🔤 🍇
+            🐽 snake_pos 1❗➕1 ➡️ 🐽 snake_pos 1❗
+        🍉
+        🙅↪ direction 🙌 🔤right🔤 🍇
+            🐽 snake_pos 0❗➕1 ➡️ 🐽 snake_pos 0❗
+        🍉
+        🙅↪ direction 🙌 🔤left🔤 🍇
+            🐽 snake_pos 0❗➖1 ➡️ 🐽 snake_pos 0❗
+        🍉
+
+        💭 put the head at the new position
+        🐵 snake_body 0 snake_pos❗️
+        👇🍴❓ ➡ is_eat
+        💭 if the snake didn't eat apple, pop the snake's body
+        ↪ ❎is_eat❗ 🍇
+            🐼 snake_body ❗️
+        🍉
+    🍉
+
+
+    ❗ 🍎 🍇
+        💭 keep generating random position for the apple
+        💭 until it doesn't overlap with the snake's body
+        👍 ➡ 🖍🆕 overlap
+        🔁 overlap 🍇
+            👎 ➡ 🖍 overlap
+            🔢 rng 0 game_width ➖1❗️ ➡ 🐽apple_pos 0❗
+            🔢 rng 0 game_height ➖1❗️ ➡ 🐽apple_pos 1❗
+            🔂 body snake_body 🍇
+                ↪ apple_pos 🙌 body 🍇
+                    👍 ➡ 🖍 overlap
+                🍉
+            🍉
+        🍉
+    🍉
+
+    ❓ 🍴 ➡ 👌 🍇
+        💭 if the snake eat the apple
+        ↪ apple_pos 🙌 🐽 snake_body 0❗ 🍇
+            ↩ 👍
+        🍉
+        ↩ 👎
+    🍉
+
+    ❗ ⭐ 🍇
+        score ⬅➕1
+    🍉
+
+    ❓ 🌟 ➡ 👌🍇
+        ↪ score 🙌 game_width ✖ game_height ➖ 1 🍇
+            ↩ 👍
+        🍉
+        ↩ 👎
+    🍉
+
+    ❓ 🧱 ➡ 👌 🍇
+        🐽 snake_body 0 ❗➡ head
+        🐽 head 0 ❗➡ head_x
+        🐽 head 1 ❗➡ head_y
+
+        💭 check if the head position isn't within the game grid
+        ↪ head_x ▶ game_width➖1 👐 head_x ◀ 0 👐 head_y ▶ game_height➖1 👐 head_y ◀ 0 🍇
+            ↩ 👍
+        🍉
+        ↩ 👎
+    🍉
+
+    ❓ 💀 ➡ 👌 🍇
+        🐽 snake_body 0 ❗➡ head
+        🔂 i 🆕⏩ 1 📏snake_body❓ ❗ 🍇
+            ↪ head 🙌 🐽snake_body i❗ 🍇
+                ↩ 👍
+            🍉
+        🍉
+        ↩ 👎
+    🍉
+
+    ❗ 📽 🍇
+        💭 current frame game grid
+        🖍🆕 grid 🍨🐚 🍨🐚🔡🍆 🍆
+        🍿🍆 ➡ 🖍 grid
+
+        💭 fill the background with blue squares
+        🔂 i 🆕⏩ 0 game_height❗️  🍇
+            🖍🆕 row 🍨🐚🔡🍆
+            🍿🍆 ➡ 🖍 row
+            🔂 j 🆕⏩ 0 game_width❗️  🍇
+                🐻 row 🔤🟦🔤❗
+            🍉
+            🐻 grid row ❗
+        🍉
+
+        💭 put the apple on the grid
+        🐽 apple_pos 0❗ ➡ apple_x
+        🐽 apple_pos 1❗ ➡ apple_y
+        🔤🍎🔤 ➡ 🐽 🐽 grid apple_y ❗ apple_x❗ 💭 grid[apple_y][apple_x]
+
+        💭 put the snake's body on the grid
+        🔂 i 🆕⏩ 0 📏snake_body❓ ❗️ 🍇
+            🐽 snake_body i❗ ➡ body
+            🐽 body 0❗ ➡ body_x
+            🐽 body 1❗ ➡ body_y
+            ↪ i 🙌 0 🍇
+                🔤🐍🔤 ➡ 🐽 🐽 grid body_y ❗ body_x❗ 💭 grid[body_y][body_x]
+            🍉
+            🙅‍♀️ 🍇
+                🔤🟩🔤 ➡ 🐽 🐽grid body_y❗ body_x❗
+            🍉
+        🍉
+
+        💭 put the terminal cursor to the upper-left of the screen
+        🕴🐇💻 🔤echo -n "\e[H"🔤 ❗
+        💭 render score
+        😀 🔤score: 🧲score🧲🔤❗
+        💭 render the game screen
+        🔂 row grid 🍇
+            🔂 column row 🍇
+                👄 column❗
+            🍉
+            😀🔤🔤❗
+        🍉
+
+        💭 game information
+        ↪ show_info 🍇
+            😀 direction❗
+            🔡🐽 snake_pos 0 ❗❗ ➡ snake_pos_x
+            🔡🐽 snake_pos 1 ❗❗ ➡ snake_pos_y
+            😀 🔤x: 🧲snake_pos_x🧲🔤❗
+            😀 🔤y: 🧲snake_pos_y🧲🔤❗
+        🍉
+    🍉
+
+    ❗ ⏸ menu_texts 🍨🐚🔡🍆 ➡ 🔢 🍇
+        0 ➡ 🖍🆕 selected_idx
+        👎 ➡ 🖍🆕 user_have_choose
+        👍 ➡ 🖍🆕 redraw_menu_screen
+
+        🔁 ❎ user_have_choose ❗ 🍇
+            💭 get key from user
+            📥🐇🖥❗ ➡ input
+
+            💭 up direction
+            ↪ input 🙌 87 👐 input 🙌 119 🍇
+                ↪ selected_idx ▶ 0 🍇
+                    selected_idx ⬅➖ 1
+                🍉
+                🙅‍♀️ 🍇
+                    📏 menu_texts ❓➖1 ➡ 🖍 selected_idx
+                🍉
+                👍 ➡ 🖍redraw_menu_screen
+            🍉
+            💭 down direction
+            🙅↪️ input 🙌 83 👐 input 🙌 115  🍇
+                ↪ selected_idx ◀ 📏 menu_texts ❓➖1 🍇
+                    selected_idx ⬅➕ 1
+                🍉
+                🙅‍♀️ 🍇
+                    0 ➡ 🖍 selected_idx
+                🍉
+                👍 ➡ 🖍redraw_menu_screen
+            🍉
+            💭 player presses enter
+            🙅↪️ input 🙌 10 🍇
+                👍 ➡ 🖍user_have_choose
+            🍉
+
+            💭 redraw the screen if the user interact with the menu
+            🔁 redraw_menu_screen 🍇
+                🕴🐇💻 🔤clear🔤❗
+
+                😀 🔤Your score: 🧲🔡score❗🧲🔤❗
+
+                🔂 i 🆕⏩ 0 📏 menu_texts ❓ ❗ 🍇
+                    🐽 menu_texts i ❗ ➡ text
+                    ↪ selected_idx 🙌 i 🍇
+                        😀 🔤➡  🧲 text 🧲🔤❗ 
+                    🍉
+                    🙅‍♀️ 🍇
+                        😀 text ❗ 
+                    🍉
+                🍉
+
+                👎 ➡ 🖍redraw_menu_screen
+            🍉
+        🍉 
+        ↩ selected_idx
+    🍉
+
+    ❗ 🏴 🍇
+        💭 clear the screen
+        🕴🐇💻 🔤clear🔤❗
+        💭 set terminal to cbreak mode
+        ✍🐇🖥❗
+        💭 hide the cursor
+        🕴🐇💻 🔤echo "\e[?25l"🔤 ❗
+        💭 default direction
+        🔤right🔤 ➡ 🖍 direction
+        💭 initial position of the snake
+        🍿 🍿0 0🍆 🍆 ➡ 🖍 snake_body
+        💭 initial position where the snake heading
+        🍿0 0🍆 ➡ 🖍 snake_pos
+        💭 initial position of the apple
+        👇🍎❗
+        💭 initial score of 0
+        0 ➡ 🖍 score
+        👇📽❗
+    🍉
+
+    ❗ 🔚 🍇
+        💭 restore the terminal mode
+        🤚🐇🖥❗
+        💭 show the cursor
+        🕴🐇💻 🔤echo -n "\e[?25h"🔤 ❗
+        💭 exit with the status code of 0
+        👎 ➡ 🖍 running
+    🍉
+
+    🆕 🍇
+        💭 call the method to initialize the game
+        👇🏴❗
+    🍉
+🍉
+
+🏁 🍇
+    🆕🎮 ❗ ➡ game
+    
+    🔁 🏃‍♀️ game ❓ 🍇
+        📽 game ❗
+        💭 handle user input
+        🕹 game ❓ ➡ key
+        💭 interpret user input
+        🛑 game key ❗
+        💭 update snake position
+        💨 game ❗
+        💭 check if the snake eat the apple
+        ↪ 🍴 game ❓ 🍇
+            ⭐ game ❗
+            ↪ ❎🌟 game ❓❗ 🍇
+                💭 generate new apple
+                🍎 game ❗
+            🍉
+        🍉
+
+        💭 check if the snake bump into walls, eat it's own body, or reach the maximum score
+        ↪ 🧱 game ❓ 👐 💀 game ❓ 👐 🌟 game ❓ 🍇
+            🍿 🔤Try again🔤 🔤Quit🔤 🍆 ➡ menu_texts
+            ⏸ game menu_texts ❗ ➡ selected_idx
+            ↪ selected_idx 🙌 0 🍇
+                🏴 game ❗
+            🍉
+            🙅‍♀️↪ selected_idx 🙌 1 🍇
+                🔚 game ❗
+            🍉
+        🍉
+        🙅‍♀️ 🍇
+            📽 game ❗
+        🍉
+
+        🕴🐇💻 🔤sleep 0.2🔤 ❗
+    🍉
+🍉
