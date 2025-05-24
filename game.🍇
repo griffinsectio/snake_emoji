@@ -191,7 +191,6 @@
     ❗ ⏸ menu_texts 🍨🐚🔡🍆 ➡ 🔢 🍇
         0 ➡ 🖍🆕 selected_idx
         👎 ➡ 🖍🆕 user_have_choose
-        👍 ➡ 🖍🆕 redraw_menu_screen
 
         🔁 ❎ user_have_choose ❗ 🍇
             💭 get key from user
@@ -205,7 +204,6 @@
                 🙅‍♀️ 🍇
                     📏 menu_texts ❓➖1 ➡ 🖍 selected_idx
                 🍉
-                👍 ➡ 🖍redraw_menu_screen
             🍉
             💭 down direction
             🙅↪️ input 🙌 83 👐 input 🙌 115  🍇
@@ -215,7 +213,6 @@
                 🙅‍♀️ 🍇
                     0 ➡ 🖍 selected_idx
                 🍉
-                👍 ➡ 🖍redraw_menu_screen
             🍉
             💭 player presses enter
             🙅↪️ input 🙌 10 🍇
@@ -223,23 +220,21 @@
             🍉
 
             💭 redraw the screen if the user interact with the menu
-            🔁 redraw_menu_screen 🍇
-                🕴🐇💻 🔤clear🔤❗
+            🕴🐇💻 🔤clear🔤❗
 
-                😀 🔤Your score: 🧲🔡score❗🧲🔤❗
+            😀 🔤Your score: 🧲🔡score❗🧲🔤❗
 
-                🔂 i 🆕⏩ 0 📏 menu_texts ❓ ❗ 🍇
-                    🐽 menu_texts i ❗ ➡ text
-                    ↪ selected_idx 🙌 i 🍇
-                        😀 🔤➡  🧲 text 🧲🔤❗ 
-                    🍉
-                    🙅‍♀️ 🍇
-                        😀 text ❗ 
-                    🍉
+            🔂 i 🆕⏩ 0 📏 menu_texts ❓ ❗ 🍇
+                🐽 menu_texts i ❗ ➡ text
+                ↪ selected_idx 🙌 i 🍇
+                    😀 🔤➡  🧲 text 🧲🔤❗ 
                 🍉
-
-                👎 ➡ 🖍redraw_menu_screen
+                🙅‍♀️ 🍇
+                    😀 text ❗ 
+                🍉
             🍉
+
+            🕴🐇💻 🔤sleep 0.2🔤❗
         🍉 
         ↩ selected_idx
     🍉
